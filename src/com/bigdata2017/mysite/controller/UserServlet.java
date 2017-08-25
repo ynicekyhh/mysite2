@@ -1,13 +1,16 @@
 package com.bigdata2017.mysite.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bigdata2017.web.util.WebUtil;
+import com.bigdata2017.mysite.action.user.UserActionFactory;
+import com.bigdata2017.web.Action;
+import com.bigdata2017.web.ActionFactory;
 
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
@@ -17,9 +20,10 @@ public class UserServlet extends HttpServlet {
 		request.setCharacterEncoding( "utf-8" );
 		
 		String actionName = request.getParameter( "a" );
-		if( "joinform".equals( actionName ) ) {
-			WebUtil.forward( "/WEB-INF/views/user/joinform.jsp", request, response);
-		} 
+		ActionFactory af = new UserActionFactory();
+		
+		Action action = af.getAction( actionName );
+		action.execute(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
