@@ -17,4 +17,9 @@ public class WebUtil {
 		RequestDispatcher rd = request.getRequestDispatcher( path );
 		rd.forward( request, response );
 	}
+	
+	public static void redirect(String url, HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendRedirect( url );
+	}	
 }
