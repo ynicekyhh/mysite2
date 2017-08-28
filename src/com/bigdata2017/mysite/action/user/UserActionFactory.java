@@ -16,7 +16,9 @@ public class UserActionFactory extends ActionFactory {
 			action = new LoginFormAction();
 	 	} else if( "join".equals( actionName ) ){
 	 		action = new JoinAction();
-	 	}else {
+	 	} else if( "joinsuccess".equals( actionName ) ){
+	 		action = new JoinSuccessAction();
+	 	} else {
 	 		action = new MainAction();
 	 	}
 		
