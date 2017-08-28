@@ -25,7 +25,7 @@ public class LifeCircleServlet extends HttpServlet {
 	}
 
 	public void destroy() {
-		System.out.println( "destory() called" );
+		System.out.println( "destory() called...." );
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
