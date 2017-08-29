@@ -7,19 +7,19 @@
 			<ul>
 				<c:choose>
 					<c:when test="${param.menu == 'main' }">
-						<li class="selected"><a href="<%=request.getContextPath() %>">안대혁</a></li>
-						<li><a href="<%=request.getContextPath() %>/guestbook">방명록</a></li>
-						<li><a href="<%=request.getContextPath() %>/board">게시판</a></li>
+						<li class="selected"><a href="${pageContext.request.contextPath }">안대혁</a></li>
+						<li><a href="${pageContext.request.contextPath }/guestbook">방명록</a></li>
+						<li><a href="${pageContext.request.contextPath }/board">게시판</a></li>
 					</c:when>
 					<c:when test="${param.menu == 'guestbook' }">
-						<li><a href="<%=request.getContextPath() %>">안대혁</a></li>
-						<li class="selected"><a href="<%=request.getContextPath() %>/guestbook">방명록</a></li>
-						<li><a href="<%=request.getContextPath() %>/board">게시판</a></li>
+						<li><a href="${pageContext.request.contextPath }">안대혁</a></li>
+						<li class="selected"><a href="${pageContext.request.contextPath }/guestbook">방명록</a></li>
+						<li><a href="${pageContext.request.contextPath }/board">게시판</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="<%=request.getContextPath() %>">안대혁</a></li>
-						<li><a href="<%=request.getContextPath() %>/guestbook">방명록</a></li>
-						<li><a href="<%=request.getContextPath() %>/board">게시판</a></li>
+						<li><a href="${pageContext.request.contextPath }">안대혁</a></li>
+						<li><a href="${pageContext.request.contextPath }/guestbook">방명록</a></li>
+						<li><a href="${pageContext.request.contextPath }/board">게시판</a></li>
 					</c:otherwise>					
 					
 				</c:choose>
