@@ -13,11 +13,16 @@ public class BoardActionFactory extends ActionFactory {
 			action = new WriteFormAction();
 		} else if( "write".equals( actionName ) ) {
 			action = new WriteAction();
-//		} else if( "view".equals( actionName ) ) {
-//		} else if( "delete".equals( actionName ) ) {
-//		} else if( "replyform".equals( actionName ) ) {
-//		} else if( "modifyform".equals( actionName ) ) {
-//		} else if( "modify".equals( actionName ) ) {
+		} else if( "view".equals( actionName ) ) {
+			action = new ViewAction();
+		} else if( "replyform".equals( actionName ) ) {
+			action = new ReplyFormAction();
+		} else if( "delete".equals( actionName ) ) {
+			action = new DeleteAction();
+		} else if( "modifyform".equals( actionName ) ) {
+			action = new ModifyFormAction();
+		} else if( "modify".equals( actionName ) ) {
+			action = new ModifyAction();
 		} else {
 			action = new ListAction();
 		}
