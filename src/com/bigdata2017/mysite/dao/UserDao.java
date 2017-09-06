@@ -66,6 +66,55 @@ public class UserDao {
 		return count;	
 	}
 	
+	public UserVo get( String email ) {
+		UserVo vo = null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+
+			String sql = 
+				" select no, name" + 
+				"   from member" + 
+				"  where email=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString( 1, email );
+			
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				Long no = rs.getLong( 1 );
+				String name = rs.getString( 2 );
+				
+				vo = new UserVo();
+				vo.setNo(no);
+				vo.setName(name);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error :" + e);
+		} finally {
+			// 자원 정리
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return vo;
+	}
+	
 	public UserVo get( Long userNo ) {
 		UserVo vo = null;
 		
